@@ -18,7 +18,7 @@ group = 'tomatopuddin'
 version = project.mod_version
 
 java {
-    archivesBaseName = 'PlayerNameTweaks-' + project.mc_version
+    archivesBaseName = 'PlayerNameTweaks-forge-' + project.mc_version
     toolchain.languageVersion = JavaLanguageVersion.of(8)
 }
 
