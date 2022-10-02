@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license = "MIT"
+[[mods]]
+modId = "playernametweaks"
+version = "${file.jarVersion}"
+displayName = "Username Tweaks"
+#displayURL="http://example.com/"
+authors="TomatoPuddin"
+description = '''
+'''
+
+[[dependencies.playernametweaks]]
+modId = "forge"
+mandatory = true
+versionRange = "[36,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.playernametweaks]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.5,1.17)"
+ordering = "NONE"
+side = "BOTH"
