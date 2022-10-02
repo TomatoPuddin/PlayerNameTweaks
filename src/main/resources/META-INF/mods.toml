@@ -4,8 +4,8 @@ license = "MIT"
 [[mods]]
 modId = "playernametweaks"
 version = "${file.jarVersion}"
-displayName = "Username Tweaks"
-#displayURL="http://example.com/"
+displayName = "Player Name Tweaks"
+displayURL="https://github.com/TomatoPuddin/PlayerNameTweaks"
 authors="TomatoPuddin"
 description = '''
 '''
