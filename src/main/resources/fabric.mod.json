@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "playernametweaks",
+  "version": "${version}",
+  "name": "PlayerNameTweaks",
+  "description": "",
+  "authors": ["TomatoPuddin"],
+  "contact": {
+    "sources": "https://github.com/TomatoPuddin/PlayerNameTweaks"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+  },
+  "mixins": [
+    "PlayerNameTweaks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.19"
+  }
+}
