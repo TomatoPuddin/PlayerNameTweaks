@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "tomatopuddin.playernametweaks.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "PlayerNameTweaks.refmap.json",
+  "mixins": [
+    "EntitySelectorParserMixin",
+    "PlayerListMixin",
+    "ServerConsoleHandlerMixin",
+    "ServerLoginPacketHandlerImplMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
