@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[38,)"
+license = "MIT"
+
+[[mods]]
+modId = "playernametweaks"
+version = "${file.jarVersion}"
+displayName = "Player Name Tweaks"
+displayURL="https://github.com/TomatoPuddin/PlayerNameTweaks"
+authors = "TomatoPuddin"
+description = '''
+
+'''
+
+[[dependencies.playernametweaks]]
+modId = "forge"
+mandatory = true
+versionRange = "[38,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.playernametweaks]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18,1.19)"
+ordering = "NONE"
+side = "BOTH"
