@@ -1,0 +1,5 @@
+{
+  "playernametweaks.hint.dangerous" : "角色名不能以 @ 或英文引号开头，或包含空白字符",
+  "playernametweaks.hint.illegal": "角色名违规",
+  "playernametweaks.hint.tooLong": "角色名长度不能大于%s个字符"
+}

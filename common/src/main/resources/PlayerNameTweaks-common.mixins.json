@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "tomatopuddin.playernametweaks.mixin",
+  "plugin": "tomatopuddin.playernametweaks.MixinConfigPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "EntitySelectorParserMixin",
+    "PlayerListMixin",
+    "ServerboundHelloPacketMixin"
+  ],
+  "server": [
+    "ServerConsoleHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

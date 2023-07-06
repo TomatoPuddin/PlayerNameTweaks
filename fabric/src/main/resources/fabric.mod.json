@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "playernametweaks",
+  "version": "${version}",
+  "name": "PlayerNameTweaks",
+  "description": "",
+  "authors": ["TomatoPuddin"],
+  "contact": {
+    "sources": "https://github.com/TomatoPuddin/PlayerNameTweaks"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "accessWidener" : "PlayerNameTweaks.accesswidener",
+  "entrypoints": {
+    "main": [
+      "tomatopuddin.playernametweaks.PlayerNameTweaksFabric"
+    ]
+  },
+  "mixins": [
+    "PlayerNameTweaks-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.19",
+    "fabric": "*",
+    "cloth-config": "*"
+  }
+}

@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[41,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/TomatoPuddin/PlayerNameTweaks/issues"
+
+[[mods]]
+modId = "playernametweaks"
+version = "${version}"
+displayName = "PlayerNameTweaks"
+displayURL="https://github.com/TomatoPuddin/PlayerNameTweaks"
+authors="TomatoPuddin"
+description = '''
+
+'''
+
+[[dependencies.playernametweaks]]
+modId = "forge"
+mandatory = true
+versionRange = "[41,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.playernametweaks]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.playernametweaks]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[7,)"
+ordering = "NONE"
+side = "BOTH"
