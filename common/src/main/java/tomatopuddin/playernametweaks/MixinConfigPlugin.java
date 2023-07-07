@@ -13,9 +13,7 @@ import java.util.stream.Collectors;
 
 public class MixinConfigPlugin implements IMixinConfigPlugin {
     private final Map.Entry<String, String>[] additionalMixins = new Map.Entry[]{
-            Map.entry("1.18.2", "ServerLoginPacketHandlerImplMixin"),
-            Map.entry("1.19", "FriendlyByteBufMixin"),
-            Map.entry("1.19.3", "ClientboundPlayerInfoUpdatePacketMixin"),
+            Map.entry("1.18.2", "ServerLoginPacketHandlerImplMixin")
     };
 
     @Override

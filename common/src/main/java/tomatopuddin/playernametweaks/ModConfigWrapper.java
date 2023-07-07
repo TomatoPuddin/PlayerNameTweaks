@@ -2,6 +2,7 @@ package tomatopuddin.playernametweaks;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
@@ -47,7 +48,7 @@ public class ModConfigWrapper {
             PlayerNameTweaks.LOGGER.warn("Player name \"{}\" is dangerous!", name);
             return null;
         }
-        return Component.translatable("playernametweaks.hint.dangerous").withStyle(ChatFormatting.YELLOW);
+        return new TranslatableComponent("playernametweaks.hint.dangerous").withStyle(ChatFormatting.YELLOW);
     }
 
     private @Nullable Component checkIllegalPlayerName(String name) {
@@ -55,12 +56,12 @@ public class ModConfigWrapper {
             return null;
         if (illegalPlayerNamePatterns.stream().noneMatch(pattern -> pattern.matcher(name).find()))
             return null;
-        return Component.translatable("playernametweaks.hint.illegal").withStyle(ChatFormatting.YELLOW);
+        return new TranslatableComponent("playernametweaks.hint.illegal").withStyle(ChatFormatting.YELLOW);
     }
 
     private @Nullable Component checkTooLongPlayerName(String name) {
         if (name.length() <= config.maxLength)
             return null;
-        return Component.translatable("playernametweaks.hint.tooLong", config.maxLength).withStyle(ChatFormatting.YELLOW);
+        return new TranslatableComponent("playernametweaks.hint.tooLong", config.maxLength).withStyle(ChatFormatting.YELLOW);
     }
 }

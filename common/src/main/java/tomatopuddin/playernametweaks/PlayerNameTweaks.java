@@ -4,10 +4,9 @@ import com.mojang.brigadier.CommandDispatcher;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.minecraft.ChatFormatting;
-import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import org.apache.logging.log4j.LogManager;
@@ -38,34 +37,16 @@ public class PlayerNameTweaks {
                         .executes(context -> {
                             var holder = AutoConfig.getConfigHolder(ModConfig.class);
                             if (!holder.load()) {
-                                sendFeedback(context.getSource(), Component.literal("Failed to reload config.").withStyle(ChatFormatting.RED), false);
+                                context.getSource().sendFailure(new TextComponent("Failed to reload config.").withStyle(ChatFormatting.RED));
                                 return 1;
                             }
 
                             config = new ModConfigWrapper(holder.getConfig(), server.isDedicatedServer());
-                            sendFeedback(context.getSource(), Component.literal("Successfully reloaded config.").withStyle(ChatFormatting.GREEN), true);
+                            context.getSource().sendSuccess(new TextComponent("Successfully reloaded config.").withStyle(ChatFormatting.GREEN), false);
                             checkPlayers();
 
                             return 0;
                         })));
-    }
-
-    public static void sendFeedback(CommandSourceStack stack, Component component, boolean success) {
-        CommandSource src = stack.source;
-
-        if (stack.silent)
-            return;
-        if (success && !src.acceptsSuccess())
-            return;
-        if (!success && !src.acceptsFailure())
-            return;
-
-        if (stack.getEntity() instanceof ServerPlayer player) {
-            player.sendSystemMessage(component);
-            return;
-        }
-
-        src.sendSystemMessage(component);
     }
 
     public static ModConfigWrapper getConfig() {
