@@ -10,7 +10,8 @@ public class ScoreboardMixin {
 
     @Redirect(method = {
             "getOrCreateScore(Ljava/lang/String;Lnet/minecraft/scoreboard/ScoreObjective;)Lnet/minecraft/scoreboard/Score;",
-            "addPlayerToTeam(Ljava/lang/String;Lnet/minecraft/scoreboard/ScorePlayerTeam;)Z"},
+            "addPlayerToTeam(Ljava/lang/String;Lnet/minecraft/scoreboard/ScorePlayerTeam;)Z",
+            "func_197905_a(Lnet/minecraft/nbt/ListNBT;)V"},
             at = @At(value = "INVOKE", target = "Ljava/lang/String;length()I", remap = false))
     private int length(String instance) {
         return 7;
