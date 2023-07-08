@@ -5,9 +5,21 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "PlayerNameTweaks.refmap.json",
   "mixins": [
+    "CLoginStartPacketMixin",
     "EntitySelectorParserMixin",
-    "ServerConsoleHandlerMixin",
-    "PlayerListMixin"
+    "PlayerListMixin",
+    "ScoreboardMixin",
+    "SLoginSuccessPacketMixin",
+    "SPlayerListItemPacketMixin",
+    "SScoreboardObjectivePacketMixin",
+    "STeamsPacketMixin",
+    "SUpdateScorePacketMixin"
+  ],
+  "server": [
+    "ServerConsoleHandlerMixin"
+  ],
+  "client": [
+    "MinecraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1

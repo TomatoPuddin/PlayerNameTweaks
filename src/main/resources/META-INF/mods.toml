@@ -4,7 +4,7 @@ license = "MIT"
 [[mods]]
 modId = "playernametweaks"
 version = "${file.jarVersion}"
-displayName = "Player Name Tweaks"
+displayName = "PlayerNameTweaks"
 displayURL="https://github.com/TomatoPuddin/PlayerNameTweaks"
 authors="TomatoPuddin"
 description = '''
@@ -21,5 +21,12 @@ side = "BOTH"
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.16.5,1.17)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.playernametweaks]]
+modId = "cloth-config"
+mandatory = true
+versionRange = "[4.10.6,)"
 ordering = "NONE"
 side = "BOTH"

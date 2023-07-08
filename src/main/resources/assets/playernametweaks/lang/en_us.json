@@ -1,0 +1,5 @@
+{
+  "playernametweaks.hint.dangerous" : "Player name cannot start with @ or quotation mark or contain blank characters.",
+  "playernametweaks.hint.illegal": "Player name is blocked.",
+  "playernametweaks.hint.tooLong": "Player name cannot be longer than %s characters."
+}

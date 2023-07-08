@@ -27,6 +27,7 @@ minecraft {
 
     runs {
         client {
+            args = ['--username', '@aaa']
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
@@ -51,21 +52,6 @@ minecraft {
                 }
             }
         }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'playernametweaks', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                playernametweaks {
-                    source sourceSets.main
-                }
-            }
-        }
     }
 }
 
@@ -78,12 +64,15 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { url "https://maven.shedaniel.me/" }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${project.forge_version}"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config:${project.cloth_config_version}")
 }
 
 jar {
