@@ -7,7 +7,8 @@
   "mixins": [
     "EntitySelectorParserMixin",
     "PlayerListMixin",
-    "ServerboundHelloPacketMixin"
+    "ServerboundHelloPacketMixin",
+    "OldUserConvertMixin"
   ],
   "server": [
     "ServerConsoleHandlerMixin"

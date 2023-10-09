@@ -5,6 +5,7 @@ import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.arguments.selector.EntitySelectorParser;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -12,6 +13,7 @@ import java.util.HashSet;
 
 @Mixin(EntitySelectorParser.class)
 public class EntitySelectorParserMixin {
+    @Unique
     private static final HashSet<Character> stopChars = new HashSet<>(Lists.charactersOf(" \t"));
 
     @Redirect(method = "parseNameOrUUID()V",
@@ -34,6 +36,7 @@ public class EntitySelectorParserMixin {
         return readUnquotedStringEx(reader);
     }
 
+    @Unique
     private String readUnquotedStringEx(StringReader reader) {
         final int start = reader.getCursor();
         while (reader.canRead() && !stopChars.contains(reader.peek())) {
