@@ -12,6 +12,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tomatopuddin.playernametweaks.mixin.CommandSourceStackAccessor;
 
 import java.util.List;
 
@@ -51,9 +52,9 @@ public class PlayerNameTweaks {
     }
 
     public static void sendFeedback(CommandSourceStack stack, Component component, boolean success) {
-        CommandSource src = stack.source;
+        CommandSource src = ((CommandSourceStackAccessor) stack).playerNameTweaks$getSource();
 
-        if (stack.silent)
+        if (stack.isSilent())
             return;
         if (success && !src.acceptsSuccess())
             return;

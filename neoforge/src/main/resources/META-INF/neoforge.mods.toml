@@ -1,7 +1,7 @@
 modLoader = "javafml"
-loaderVersion = "[41,)"
-license = "MIT"
+loaderVersion = "[2,)"
 issueTrackerURL = "https://github.com/TomatoPuddin/PlayerNameTweaks/issues"
+license = "MIT"
 
 [[mods]]
 modId = "playernametweaks"
@@ -14,22 +14,26 @@ description = '''
 '''
 
 [[dependencies.playernametweaks]]
-modId = "forge"
-mandatory = true
-versionRange = "[41,)"
+modId = "neoforge"
+type = "required"
+versionRange = "[20.5,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.playernametweaks]]
 modId = "minecraft"
-mandatory = true
-versionRange = "[1.19,)"
+type = "required"
+versionRange = "[1.20.5,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.playernametweaks]]
 modId = "cloth_config"
-mandatory = true
-versionRange = "[7,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[mixins]]
+config = "playernametweaks.mixins.json"
+
+[[mixins]]
+config = "playernametweaks-neoforge.mixins.json"

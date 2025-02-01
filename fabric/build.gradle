@@ -7,10 +7,6 @@ architectury {
     fabric()
 }
 
-loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-}
-
 configurations {
     common
     shadowCommon
@@ -19,41 +15,44 @@ configurations {
     developmentFabric.extendsFrom common
 }
 
-dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+loom {
+    mixin {
+        defaultRefmapName = "playernametweaks-fabric.refmap.json"
+    }
+}
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+repositories {
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    modCompileOnly "maven.modrinth:carpet:1.4.147"
+
+    common(project(path: ':common', configuration: 'namedElements')) { transitive false }
+    shadowCommon project(path: ':common', configuration: 'transformProductionFabric')
 }
 
 processResources {
-    inputs.property "version", project.version
+    inputs.property 'version', project.version
 
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
+    filesMatching('fabric.mod.json') {
+        expand version: project.version
     }
 }
 
 shadowJar {
     configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
+    archiveClassifier = "dev-shadow"
 }
 
 remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
-    classifier null
-}
-
-jar {
-    classifier "dev"
-}
-
-sourcesJar {
-    def commonSources = project(":common").sourcesJar
-    dependsOn commonSources
-    from commonSources.archiveFile.map { zipTree(it) }
 }
 
 components.java {

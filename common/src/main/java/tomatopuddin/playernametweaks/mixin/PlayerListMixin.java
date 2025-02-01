@@ -13,7 +13,6 @@ import java.net.SocketAddress;
 
 @Mixin(PlayerList.class)
 public class PlayerListMixin {
-
     @Inject(method = "canPlayerLogin(Ljava/net/SocketAddress;Lcom/mojang/authlib/GameProfile;)Lnet/minecraft/network/chat/Component;",
             at = @At("HEAD"), cancellable = true)
     public void canPlayerLogin(SocketAddress p_206258_1_, GameProfile profile, CallbackInfoReturnable<Component> cir) {

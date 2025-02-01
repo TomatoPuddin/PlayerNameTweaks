@@ -1,14 +1,15 @@
 package tomatopuddin.playernametweaks;
 
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.event.server.ServerStartedEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.server.ServerStartedEvent;
 
 @Mod(PlayerNameTweaks.MODID)
-@Mod.EventBusSubscriber
-public class PlayerNameTweaksForge {
-    public PlayerNameTweaksForge() {
+@EventBusSubscriber
+public class PlayerNameTweaksNeoForge {
+    public PlayerNameTweaksNeoForge() {
         PlayerNameTweaks.init();
     }
 

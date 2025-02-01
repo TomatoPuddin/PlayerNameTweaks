@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ServerboundHelloPacket.class)
 public class ServerboundHelloPacketMixin {
-
     @Redirect(method = "<init>(Lnet/minecraft/network/FriendlyByteBuf;)V", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/network/FriendlyByteBuf;readUtf(I)Ljava/lang/String;"))
     private static String readUtfName(FriendlyByteBuf instance, int i) {

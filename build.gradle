@@ -1,10 +1,10 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "0.11.0-SNAPSHOT" apply false
+    id "dev.architectury.loom" version "1.7-SNAPSHOT" apply false
 }
 
 architectury {
-    minecraft = rootProject.minecraft_version
+    minecraft = project.minecraft_version
 }
 
 subprojects {
@@ -12,34 +12,38 @@ subprojects {
 
     loom {
         silentMojangMappingsLicense()
-
-        mixin {
-            defaultRefmapName = "PlayerNameTweaks.refmap.json"
-        }
     }
 
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
         mappings loom.officialMojangMappings()
     }
-}
 
+    java {
+        withSourcesJar()
+
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.release = 21
+    }
+}
 allprojects {
     apply plugin: "java"
     apply plugin: "architectury-plugin"
 
-    archivesBaseName = rootProject.archives_base_name + '-' + project.name + '-' + rootProject.supported_mc_version
+    base {
+        archivesBaseName = rootProject.archives_base_name + '-' + project.name + '-' + rootProject.supported_mc_version
+    }
+
     version = rootProject.mod_version
     group = rootProject.maven_group
 
-    repositories {
-        maven { url "https://maven.shedaniel.me/" }
-        maven { url "https://maven.terraformersmc.com/releases/" }
-    }
-
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
-        options.release = 17
+        options.release = 21
     }
 
     java {
